@@ -30,25 +30,38 @@
     
     <div class="line"></div>
     
-    <h3>💌 Falando um pouquinho pra ti 💌</h3>
+    <h2>💌 Falando um pouquinho pra ti 💌</h2>
     <p>Feliz aniversario meu amor, que seu dia seja muito abençoado, muito cheio de alegria, fiz esse site para te mostrar o quao especial que voce é, como tu ja sabe, eu nao seu criar cartinhas romanticas e muito menos colocar meus sentimetos em palavras, eu espero que a surpresa tenha sido incrivel, esse site ira ficar ativo ate o dia que eu cancelar, entao eu te peço que guarde ele com carinho, feliz seu grande dia meu amor, eu te amo mais do q palavras podem dizer, mais do que gestos podem mostrar, eu te amo de todas as formas possiveis, voce é meu tudo, EU TE AMOOOOOO!!!!!</p>
+
+    <div class="line"></div>
     
+    <!DOCTYPE html>
+
+<html>
+<body>
+
     <script>
         function atualizarContador() {
-            const dataInicial = new Date("2007-04-02T00:00:00").getTime(); // Data de início
+            const dataLimite = new Date("2007-04-02T02:00:00").getTime(); // Data limite para 18 anos
+
             setInterval(() => {
                 const agora = new Date().getTime();
-                let diferenca = agora - dataInicial; // Tempo passado desde a data inicial
-                
+                let diferenca = dataLimite - agora; // Calcula a diferença até a data limite
+                let anos = 0;
+
+                if (agora >= dataLimite) {
+                    anos = 18; // Se a data atual for maior ou igual à data limite, exibe 18 anos
+                    diferenca = agora - dataLimite; // Calcula a diferença após a data limite
+                }
+
                 // Calculando o tempo decorrido
-                const anos = Math.floor(diferenca / (1000 * 60 * 60 * 24 * 365));
                 const meses = Math.floor((diferenca % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
                 const semanas = Math.floor((diferenca % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24 * 7));
                 const dias = Math.floor((diferenca % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
                 const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
                 const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
-                
+
                 // Exibindo o tempo decorrido no HTML
                 document.getElementById("contador").innerHTML =
                     `${anos} anos, ${meses} meses, ${semanas} semanas, ${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
@@ -58,3 +71,8 @@
     </script>
 </body>
 </html>
+
+<div>
+    <h1>Feliz Aniversário!!!</h1>
+    <button onclick="window.location.href='pagina3.html'">Nossa galeria!</button>
+</div>
