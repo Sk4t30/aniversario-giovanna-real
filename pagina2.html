@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz aniversário!!!</title>
+    <link rel="stylesheet" href="style2.css">
+    <style>
+        /* Estilo básico para o contador */
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>🎶 uma musica que lembra você 🎶</h2>
+    <!-- Usando um arquivo MP3 diretamente -->
+    <audio controls autoplay>
+        <source src="musica/13 - Um Amor Puro.mp3" type="audio/mp3">
+    </audio>
+    
+    <h2>📷 A sua melhor foto 📷</h2>
+    <img src="foto/b4b30192-56c8-4e22-976b-c6d283c3bbd1.jfif" alt="Foto Personalizada" width="300">
+    
+    <h2>⏳ O tempo que tu viveu sendo incrivel ⏳</h2>
+    <div id="contador" class="countdown"></div> <!-- O contador será exibido aqui -->
+    
+    <div class="line"></div>
+    
+    <h3>💌 Falando um pouquinho pra ti 💌</h3>
+    <p>Feliz aniversario meu amor, que seu dia seja muito abençoado, muito cheio de alegria, fiz esse site para te mostrar o quao especial que voce é, como tu ja sabe, eu nao seu criar cartinhas romanticas e muito menos colocar meus sentimetos em palavras, eu espero que a surpresa tenha sido incrivel, esse site ira ficar ativo ate o dia que eu cancelar, entao eu te peço que guarde ele com carinho, feliz seu grande dia meu amor, eu te amo mais do q palavras podem dizer, mais do que gestos podem mostrar, eu te amo de todas as formas possiveis, voce é meu tudo, EU TE AMOOOOOO!!!!!</p>
+    
+    <script>
+        function atualizarContador() {
+            const dataInicial = new Date("2007-04-02T00:00:00").getTime(); // Data de início
+            setInterval(() => {
+                const agora = new Date().getTime();
+                let diferenca = agora - dataInicial; // Tempo passado desde a data inicial
+                
+                // Calculando o tempo decorrido
+                const anos = Math.floor(diferenca / (1000 * 60 * 60 * 24 * 365));
+                const meses = Math.floor((diferenca % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+                const semanas = Math.floor((diferenca % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24 * 7));
+                const dias = Math.floor((diferenca % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+                
+                // Exibindo o tempo decorrido no HTML
+                document.getElementById("contador").innerHTML =
+                    `${anos} anos, ${meses} meses, ${semanas} semanas, ${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
+            }, 1000);
+        }
+        atualizarContador();
+    </script>
+</body>
+</html>
